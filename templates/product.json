@@ -23,7 +23,9 @@
         "grouped_products_buttons": {
           "type": "grouped_products_buttons",
           "settings": {
-          "enable_grouped_product_picker":true
+          "enable_grouped_product_picker":true,
+          "grouped_product_block_title":"Colors",
+          "grouped_product_block_button_type":"color_swatch"
           }
         },
         "variant_picker": {

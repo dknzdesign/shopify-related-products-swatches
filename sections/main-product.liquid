@@ -901,6 +901,29 @@
           "id": "enable_grouped_product_picker",
           "label": "Enable Grouped Product Buttons",
           "default": true
+        },
+        {
+          "type": "text",
+          "id": "grouped_product_block_title",
+          "label": "Block Title",
+          "default": "View Colors"
+        },
+        {
+          "id": "grouped_product_block_button_type",
+          "label": "Button Type",
+          "type": "select",
+          "info": "Choose type of button to display on product details page.",
+          "options": [
+            {
+              "value": "product_name",
+              "label": "Product Name"
+            },
+            {
+              "value": "color_swatch",
+              "label": "Color Swatch"
+            }
+          ],
+          "default": "product_name"
         }
       ]
     },

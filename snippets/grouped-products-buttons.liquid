@@ -13,7 +13,9 @@
     block: block %}
 {% endcomment %}
 {% if block.settings.enable_grouped_product_picker %}
-  <p>Other Styles</p>
+  {% if block.settings.grouped_product_block_title %}
+    <p>{{ block.settings.grouped_product_block_title }}</p>
+  {% endif %}
   <div class="color grouped_product_select">
     {% assign current_product_handle = product.handle %}
     {% assign grouped_products = product.metafields.custom.grouped_products.value %}
