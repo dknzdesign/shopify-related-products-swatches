@@ -1,0 +1,13 @@
+{% comment %}
+  Renders grouped products links as swatches or product name buttons on the product details page
+  Uses a Product Metafield called custom.grouped_products to link other products
+  (Requires manually adding and populating the metafield)
+
+  Accepts:
+
+  Usage:
+  {%  render enable-grouped-product %}
+{% endcomment %}
+{% if block.settings.enable_grouped_product_picker %}
+  <p>Grouped Product Selector</p>
+{% endif %}

@@ -460,7 +460,8 @@
                   assign share_url = product.selected_variant.url | default: product.url | prepend: request.origin
                   render 'share-button', block: block, share_link: share_url
                 %}
-
+              {%- when 'grouped_products_buttons' -%}
+                {% render 'grouped-products-buttons' %}
               {%- when 'variant_picker' -%}
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
               {%- when 'buy_buttons' -%}
@@ -887,6 +888,19 @@
             }
           ],
           "default": "circle"
+        }
+      ]
+    },
+    {
+      "type": "grouped_products_buttons",
+      "name": "Grouped Product Links",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "enable_grouped_product_picker",
+          "label": "Enable Grouped Product Buttons",
+          "default": true
         }
       ]
     },

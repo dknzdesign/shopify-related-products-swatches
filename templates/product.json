@@ -20,6 +20,12 @@
           "settings": {
           }
         },
+        "grouped_products_buttons": {
+          "type": "grouped_products_buttons",
+          "settings": {
+          "enable_grouped_product_picker":true
+          }
+        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -55,6 +61,7 @@
         "vendor",
         "title",
         "price",
+        "grouped_products_buttons",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
