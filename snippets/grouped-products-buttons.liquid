@@ -42,8 +42,11 @@
   </div>
   <style>
       {% if button_type == 'color_swatch' %}
+        .grouped_product_select{display:flex;}
         .grouped_product_select a {
-          display: inline-block;
+          display: flex;
+          align-items:center;
+          justify-content:center;
           height:24px;
           width:24px;
           padding:1px;
