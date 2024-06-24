@@ -25,7 +25,7 @@
       <a
         href="{{ grouped_product.url }}"
         class="
-          swatch
+          {% if button_type == 'color_swatch' %}swatch{% endif %}
           {%if current_product_handle == grouped_product.handle %}current{% endif %}
           {{ button_type }}
         "
