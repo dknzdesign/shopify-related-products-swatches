@@ -20,15 +20,50 @@
     {% assign current_product_handle = product.handle %}
     {% assign grouped_products = product.metafields.custom.grouped_products.value %}
     {% for grouped_product in grouped_products %}
+      {% assign button_type = block.settings.grouped_product_block_button_type %}
+      {% assign color_swatch = grouped_product.metafields.custom.color_swatch.value %}
       <a
         href="{{ grouped_product.url }}"
-        class="pill {%if current_product_handle == grouped_product.handle %}current{% endif %}"
+        class="
+          swatch
+          {%if current_product_handle == grouped_product.handle %}current{% endif %}
+          {{ button_type }}
+        "
       >
-        {{- grouped_product.title -}}
+        {% if button_type == 'product_name' %}
+          {{ grouped_product.title }}
+        {% endif %}
+        {% if button_type == 'color_swatch' %}
+          <span class="swatch" style="background-color:{{ color_swatch.hex }}"></span>
+        {% endif %}
       </a>
     {% endfor %}
   </div>
   <style>
+      {% if button_type == 'color_swatch' %}
+        .grouped_product_select a {
+          display: inline-block;
+          height:24px;
+          width:24px;
+          padding:1px;
+          text-align:center;
+          margin: 0.7rem 0.5rem 0.2rem 0;
+          border: var(--variant-pills-border-width) solid rgba(var(--color-foreground), var(--variant-pills-border-opacity));
+          border-radius:12px;
+          overflow:hidden;
+          background:white;
+          box-sizing:border-box;
+        }
+        .grouped_product_select a.current, .grouped_product_select a:hover {
+          border-color: 0.2rem solid rgba(var(--color-foreground), 0.5);
+        }
+        .grouped_product_select a .swatch{
+          height: 18px;
+          width: 18px;
+          display: inline-block;
+        }
+
+    {% else %}
     .grouped_product_select a {
       border: var(--variant-pills-border-width) solid rgba(var(--color-foreground), var(--variant-pills-border-opacity));
       background-color: rgb(var(--color-background));
@@ -54,5 +89,7 @@
     .grouped_product_select a:hover:not(.current) {
       border-color: 0.2rem solid rgba(var(--color-foreground), 0.5);
     }
+
+    {% endif %}
   </style>
 {% endif %}
