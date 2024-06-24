@@ -29,6 +29,7 @@
           {%if current_product_handle == grouped_product.handle %}current{% endif %}
           {{ button_type }}
         "
+        title="{{  grouped_product.title | escape }}"
       >
         {% if button_type == 'product_name' %}
           {{ grouped_product.title }}
