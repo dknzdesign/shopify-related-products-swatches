@@ -35,7 +35,17 @@
           {{ grouped_product.title }}
         {% endif %}
         {% if button_type == 'color_swatch' %}
-          <span class="swatch" style="background-color:{{ color_swatch.hex }}"></span>
+          <span
+            class="swatch"
+            style="
+              {% if color_swatch.image!='' and color_swatch.image!=null %}
+                 background-image:url({{ color_swatch.image }})
+                 background-size:cover;
+              {% else %}
+               background-color:{{ color_swatch.hex }}
+               {% endif %}
+            "
+          ></span>
         {% endif %}
       </a>
     {% endfor %}
