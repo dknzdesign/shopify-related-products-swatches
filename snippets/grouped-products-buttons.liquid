@@ -39,7 +39,7 @@
             class="swatch"
             style="
               {% if color_swatch.image!='' and color_swatch.image!=null %}
-                 background-image:url({{ color_swatch.image }})
+                 background-image:url('{{ color_swatch.image | image_url}}');
                  background-size:cover;
               {% else %}
                background-color:{{ color_swatch.hex }}
