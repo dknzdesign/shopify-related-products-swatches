@@ -461,7 +461,7 @@
                   render 'share-button', block: block, share_link: share_url
                 %}
               {%- when 'grouped_products_buttons' -%}
-                {% render 'grouped-products-buttons' %}
+                {% render 'grouped-products-buttons', product: product, block: block %}
               {%- when 'variant_picker' -%}
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
               {%- when 'buy_buttons' -%}

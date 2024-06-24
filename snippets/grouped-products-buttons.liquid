@@ -4,10 +4,26 @@
   (Requires manually adding and populating the metafield)
 
   Accepts:
+  - product: {Object} product object.
+  - block: {Object} block object.
 
   Usage:
-  {%  render enable-grouped-product %}
+  {%  render enable-grouped-product,
+    product: product,
+    block: block %}
 {% endcomment %}
 {% if block.settings.enable_grouped_product_picker %}
-  <p>Grouped Product Selector</p>
+  <p>Other Styles</p>
+  <div class="color grouped_product_select">
+    {% assign current_product_handle = product.handle %}
+    {% assign grouped_products = product.metafields.custom.grouped_products.value %}
+    {% for grouped_product in grouped_products %}
+      <a
+        href="{{ grouped_product.url }}"
+        class="pill {%if current_product_handle == grouped_product.handle %}current{% endif %}"
+      >
+        {{- grouped_product.title -}}
+      </a>
+    {% endfor %}
+  </div>
 {% endif %}
